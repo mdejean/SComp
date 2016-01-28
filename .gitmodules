@@ -1,0 +1,7 @@
+[submodule "bzip2"]
+	path = bzip2
+	url = git://git.debian.org/collab-maint/bzip2.git
+
+[submodule "zlib"]
+	path = zlib
+	url = git://github.com/madler/zlib.git
