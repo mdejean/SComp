@@ -54,7 +54,7 @@ exec_prefix = $(prefix)
 DEF = 
 OBJS = huffman.o crc32.o explode.o implode.o SComp.o SErr.o SMem.o wave.o
 
-all: $(STATICLIB) $(SHAREDLIB) $(IMPLIB)
+all: zlib bzip2 $(STATICLIB) $(SHAREDLIB) $(IMPLIB)
 
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -76,7 +76,13 @@ ifndef DEBUG
 	$(STRIP) $@
 endif
 
-.PHONY: clean
+.PHONY: clean zlib bzip2
+
+zlib:
+	$(MAKE) -C zlib -f win32/Makefile.gcc
+
+bzip2:
+	$(MAKE) -C bzip2
 
 clean:
 	-$(RM) $(STATICLIB)
